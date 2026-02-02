@@ -1,41 +1,48 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useLocale } from 'next-intl';
-import { useState } from 'react';
-import LocaleToggel from './LocaleToggel';
-
-import styles from './Navbar.module.css';
+import Link from "next/link";
+import { useLocale } from "next-intl";
+import { useState } from "react";
+import LocaleToggel from "./LocaleToggel";
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const locale = useLocale();
 
-  const l = (path) => `/${locale}${path}`;
+  // Base localized root
+  const home = `/${locale}`;
+
+  // Sections in your single landing page
+  const items = [
+    { label: "HOME", href: `${home}/#top` },
+    { label: "ABOUT", href: `${home}/#about` },
+    { label: "CALENDAR", href: `${home}/#calendar` },
+    { label: "SPEAKERS", href: `${home}/#speakers` },
+    { label: "PAPERS", href: `${home}/#papers` },
+    { label: "JOIN", href: `${home}/#join` },
+    { label: "TEAM", href: `${home}/#team` },
+  ];
 
   return (
     <header className={styles.navbar}>
       <div className={styles.inner}>
-
-        {/* LEFT: Logo */}
+        {/* LEFT: Brand */}
         <div className={styles.left}>
-          <Link href={l('/')} className={styles.brand}>
-            <img
-              src="/brand/ZDM1.png"
-              alt="Zamor Data & Models"
-              className={styles.logo}
-            />
+          <Link href={`${home}/#top`} className={styles.brand} onClick={() => setOpen(false)}>
+            <span className={styles.brandText}>Journal Club UCN</span>
+            <span className={styles.brandSpacer} aria-hidden="true" />
+            <span className={styles.brandTag}>High Energy Physics</span>
           </Link>
         </div>
 
         {/* CENTER: Desktop links */}
         <nav className={styles.center}>
-          <Link href={l('/')} className={styles.link}>HOME</Link>
-          <Link href={l('/services')} className={styles.link}>SERVICES</Link>
-          <Link href={l('/demos')} className={styles.link}>DEMOS</Link>
-          <Link href={l('/projects')} className={styles.link}>PROJECTS</Link>
-          <Link href={l('/about')} className={styles.link}>ABOUT</Link>
-          <Link href={l('/contact')} className={styles.link}>CONTACT</Link>
+          {items.map((it) => (
+            <Link key={it.label} href={it.href} className={styles.link}>
+              {it.label}
+            </Link>
+          ))}
         </nav>
 
         {/* RIGHT: Language + Hamburger */}
@@ -45,7 +52,7 @@ export default function Navbar() {
           <button
             className={styles.hamburger}
             aria-label="Open menu"
-            onClick={() => setOpen(o => !o)}
+            onClick={() => setOpen((o) => !o)}
           >
             ☰
           </button>
@@ -53,17 +60,18 @@ export default function Navbar() {
       </div>
 
       {/* MOBILE MENU */}
-    
-<nav className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ''}`}>
-  <Link href={l('/')} className={styles.mobileLink} onClick={() => setOpen(false)}>HOME</Link>
-  <Link href={l('/services')} className={styles.mobileLink} onClick={() => setOpen(false)}>SERVICES</Link>
-  <Link href={l('/demos')} className={styles.mobileLink} onClick={() => setOpen(false)}>DEMOS</Link>
-  <Link href={l('/projects')} className={styles.mobileLink} onClick={() => setOpen(false)}>PROJECTS</Link>
-  <Link href={l('/about')} className={styles.mobileLink} onClick={() => setOpen(false)}>ABOUT</Link>
-  <Link href={l('/contact')} className={styles.mobileLink} onClick={() => setOpen(false)}>CONTACT</Link>
-</nav>
-
-      
+      <nav className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}>
+        {items.map((it) => (
+          <Link
+            key={it.label}
+            href={it.href}
+            className={styles.mobileLink}
+            onClick={() => setOpen(false)}
+          >
+            {it.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }

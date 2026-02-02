@@ -1,22 +1,21 @@
 import Hero from "@/components/sections/Hero/Hero";
-import ProcessSteps from "@/components/sections/ProcessSteps/ProcessSteps";
-import ServicesGrid from "@/components/sections/ServicesGrid/ServicesGrid";
-import FeaturedProjects from "@/components/sections/FeaturedProjects/FeaturedProjects";
-import Overview from "@/components/sections/Overview/Overview";
+import About from "@/components/sections/About/About";
+import Calendar from "@/components/sections/Calendar/Calendar";
+import Speakers from "@/components/sections/Speakers/Speakers";
+import Papers from "@/components/sections/Papers/Papers";
+import Join from "@/components/sections/Join/Join";
+import Team from "@/components/sections/Team/Team";
 
-
-export default function HomePage({ params }) {
-  const { locale } = params;
-
+export default function Page() {
   return (
-    <>
-      <Hero locale={locale} />
-      <Overview />
-      
-      <ProcessSteps />
-      <ServicesGrid />
-
-      <FeaturedProjects locale={locale} />
-    </>
+    <main>
+      <Hero />
+      <About />
+      <Calendar />
+      <Speakers />
+      <Papers />
+      <Join />
+      <Team />
+    </main>
   );
 }

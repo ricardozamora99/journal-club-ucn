@@ -46,7 +46,10 @@
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  gap: 6px;
 }
+
+
 
 .logo{
   height: 42px;
@@ -270,4 +273,20 @@
     background: rgba(27,73,163,0.10);
     transform: translateY(-1px);
   }
+}
+
+.brandText{
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #1b1f2a;
+  font-size: 15px;
+  line-height: 1.05;
+}
+
+.brandTag{
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  opacity: 0.70;
+  letter-spacing: 0.02em;
 }

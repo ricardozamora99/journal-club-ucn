@@ -1,38 +1,39 @@
-zamor-data-models/
+journal-club-hep/
 ├─ src/
 │  ├─ app/
-│  │  ├─ layout.jsx                 # Root layout (html/body) — NO navbar/footer aquí
-│  │  ├─ globals.css                # MUY pequeño: reset + base + imports
-│  │  ├─ page.jsx                   # (opcional) si existiera, mejor NO usarlo con i18n
+│  │  ├─ layout.js                  # Root html/body only
+│  │  ├─ globals.css
 │  │  │
-│  │  ├─ [locale]/                  # necesario para /en y /es
-│  │  │  ├─ layout.jsx              # NextIntlClientProvider + validación locale
+│  │  ├─ [locale]/
+│  │  │  ├─ layout.js               # NextIntlClientProvider + locale validation
 │  │  │  └─ (site)/
-│  │  │     ├─ layout.jsx           # layout público (Navbar + Footer)
-│  │  │     ├─ page.jsx             # /en  y /es (home)
+│  │  │     ├─ layout.js            # Public layout (Navbar + Footer)
+│  │  │     ├─ page.js              # HOME (/en, /es)
 │  │  │
-│  │  │     ├─ services/
-│  │  │     │  ├─ page.jsx          # /en/services  | /es/services
+│  │  │     ├─ info/
+│  │  │     │  └─ page.js           # /en/info
+│  │  │
+│  │  │     ├─ calendar/
+│  │  │     │  └─ page.js           # /en/calendar
+│  │  │
+│  │  │     ├─ speakers/
+│  │  │     │  ├─ page.js           # /en/speakers  (Upcoming + Past inside)
 │  │  │     │  └─ [slug]/
-│  │  │     │     └─ page.jsx       # /en/services/<slug>
+│  │  │     │     └─ page.js        # /en/speakers/<slug> (optional profile page)
 │  │  │
-│  │  │     ├─ demos/
-│  │  │     │  ├─ page.jsx          # /en/demos
+│  │  │     ├─ papers/
+│  │  │     │  ├─ page.js           # /en/papers (list + filters)
 │  │  │     │  └─ [slug]/
-│  │  │     │     └─ page.jsx       # /en/demos/<slug>
+│  │  │     │     └─ page.js        # /en/papers/<slug> (paper detail)
 │  │  │
-│  │  │     ├─ projects/
-│  │  │     │  ├─ page.jsx          # /en/projects
-│  │  │     │  └─ [slug]/
-│  │  │     │     └─ page.jsx       # /en/projects/<slug>
+│  │  │     ├─ join/
+│  │  │     │  └─ page.js           # /en/join (how to join, links, rules)
 │  │  │
-│  │  │     ├─ about/
-│  │  │     │  └─ page.jsx          # /en/about
-│  │  │     └─ contact/
-│  │  │        └─ page.jsx          # /en/contact
+│  │  │     └─ team/
+│  │  │        └─ page.js           # /en/team
 │  │  │
 │  │  ├─ api/
-│  │  │  └─ contact/route.js
+│  │  │  └─ contact/route.js        # optional: join form/contact
 │  │  ├─ robots.js
 │  │  └─ sitemap.js
 │  │
@@ -47,71 +48,43 @@ zamor-data-models/
 │  │  │
 │  │  ├─ sections/
 │  │  │  ├─ Hero/
-│  │  │  │  ├─ Hero.jsx
-│  │  │  │  └─ Hero.module.css
-│  │  │  ├─ ServicesGrid/
-│  │  │  │  ├─ ServicesGrid.jsx
-│  │  │  │  └─ ServicesGrid.module.css
-│  │  │  ├─ FeaturedDemos/
-│  │  │  │  ├─ FeaturedDemos.jsx
-│  │  │  │  └─ FeaturedDemos.module.css
-│  │  │  ├─ ProcessSteps/
-│  │  │  │  ├─ ProcessSteps.jsx
-│  │  │  │  └─ ProcessSteps.module.css
-│  │  │  └─ ContactCTA/
-│  │  │     ├─ ContactCTA.jsx
-│  │  │     └─ ContactCTA.module.css
+│  │  │  ├─ Highlights/
+│  │  │  ├─ NextSession/
+│  │  │  ├─ WeeklyPaper/
+│  │  │  └─ CTAJoin/
 │  │  │
 │  │  └─ ui/
 │  │     ├─ Button/
-│  │     │  ├─ Button.jsx
-│  │     │  └─ Button.module.css
 │  │     ├─ Card/
-│  │     │  ├─ Card.jsx
-│  │     │  └─ Card.module.css
-│  │     └─ Badge/
-│  │        ├─ Badge.jsx
-│  │        └─ Badge.module.css
-│  │
-│  ├─ styles/
-│  │  ├─ tokens.css
-│  │  ├─ reset.css
-│  │  ├─ typography.css
-│  │  └─ utilities.css
+│  │     ├─ Badge/
+│  │     └─ Tabs/
 │  │
 │  ├─ content/
-│  │  ├─ services.js
-│  │  ├─ projects.js
-│  │  └─ demos.js
+│  │  ├─ sessions.js                # canonical “events”: date, title, speaker, links
+│  │  ├─ papers.js                  # weekly arXiv picks + metadata
+│  │  ├─ speakers.js                # speaker profiles (optional)
+│  │  └─ team.js
 │  │
 │  ├─ lib/
+│  │  ├─ useInView.js               # your scroll reveal hook
 │  │  ├─ seo.js
-│  │  ├─ validators.js
 │  │  └─ utils.js
 │  │
-│  └─ assets/
-│     └─ brand/
-│        ├─ logo.svg
-│        ├─ logo.png
-│        └─ mark.png
+│  ├─ messages/
+│  │  ├─ en.json
+│  │  └─ es.json
+│  │
+│  └─ i18n/
+│     ├─ routing.js
+│     └─ request.js
 │
 ├─ public/
-│  ├─ brand/
-│  │  ├─ logo.svg
-│  │  ├─ logo.png
-│  │  └─ og-image.png
-│  └─ favicon.ico
-│
-├─ src/messages/
-│  ├─ en.json
-│  └─ es.json
-│
-├─ src/i18n/
-│  ├─ routing.js
-│  └─ request.js
+│  ├─ brand/                        # later: logo
+│  ├─ speakers/                     # speaker photos (optional)
+│  └─ og-image.png
 │
 ├─ src/middleware.js
-├─ .env.local
-├─ next.config.mjs              # (o next.config.js) con next-intl plugin
+├─ next-intl.config.mjs
+├─ next.config.mjs
 ├─ package.json
 └─ README.md

@@ -1,0 +1,13 @@
+.section { padding: 90px 0; }
+.title { font-size: 28px; margin: 0 0 14px; }
+
+.card {
+  max-width: 72ch;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+.line { margin: 0 0 10px; opacity: 0.9; }
+.line:last-child { margin-bottom: 0; }
