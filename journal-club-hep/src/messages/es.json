@@ -1,9 +1,51 @@
 {
   "Nav": {
-    "about": "Acerca de",
-    "services": "Servicios",
-    "projects": "Proyectos",
-    "demos": "Demos",
-    "contact": "Contacto"
+    "home": "INICIO",
+    "about": "ACERCA",
+    "calendar": "CALENDARIO",
+    "speakers": "PONENTES",
+    "papers": "ARTÍCULOS",
+    "join": "ÚNETE",
+    "team": "EQUIPO"
+  },
+  "Hero": {
+    "title": "Impulsando la Física de Altas Energías en la UCN",
+    "subtitle": "Charlas semanales, discusión y lectura de artículos para fomentar la colaboración en física de partículas.",
+    "ctaJoin": "Únete",
+    "ctaNext": "Próxima sesión"
+  },
+  "About": {
+    "title": "Sobre el Journal Club",
+    "text": "Un espacio de la Universidad Católica del Norte dedicado a discutir Física de Altas Energías, cosmología y temas más allá del Modelo Estándar."
+  },
+  "Calendar": {
+    "title": "Próximas Reuniones",
+    "next": "Próxima sesión: Por definir",
+    "time": "Hora: Por definir",
+    "place": "Lugar: Por definir",
+    "btn": "Descargar artículo"
+  },
+  "Speakers": {
+    "title": "Ponentes",
+    "upcoming": "Próximos: Por definir",
+    "past": "Anteriores: Por definir"
+  },
+  "Papers": {
+    "title": "Recursos & Lecturas",
+    "sm": "Artículos del Modelo Estándar",
+    "bsm": "Más allá del ME",
+    "cosmo": "Cosmología & Astropartículas",
+    "tools": "Herramientas Computacionales"
+  },
+  "Join": {
+    "title": "Únete",
+    "text": "¿Te interesa presentar o asistir? Contáctanos o inscríbete abajo.",
+    "email": "Correo: Por definir",
+    "form": "Formulario: Por definir"
+  },
+  "Team": {
+    "title": "Comité Organizador",
+    "member1": "Nombre — Organizador",
+    "member2": "Nombre — Organizador"
   }
 }

@@ -1,20 +1,25 @@
+"use client";
+import { useTranslations } from "next-intl";
 import styles from "./Hero.module.css";
 import Container from "@/components/layout/Container";
 
 export default function Hero() {
+  const t = useTranslations("Hero");
   return (
-    <section id="top" className={styles.section}>
+    <section id="top" className={styles.hero}>
+      <div className={styles.bg} aria-hidden="true" />
+      <div className={styles.overlay} aria-hidden="true" />
+
       <Container>
         <div className={styles.inner}>
-          <h1 className={styles.title}>Journal Club UCN</h1>
-          <p className={styles.subtitle}>High Energy Physics</p>
-          <p className={styles.text}>
-            Weekly talks, discussions, and paper reading sessions.
+          <h1 className={styles.title}>{t("title")}</h1>
+          <p className={styles.subtitle}>
+            {t("subtitle")}
           </p>
 
           <div className={styles.actions}>
-            <a className={styles.button} href="#join">Join</a>
-            <a className={styles.buttonGhost} href="#calendar">Next session</a>
+            <a className={styles.btn} href="#join">{t("ctaJoin")}</a>
+            <a className={styles.btnGhost} href="#calendar">{t("ctaNext")}</a>
           </div>
         </div>
       </Container>

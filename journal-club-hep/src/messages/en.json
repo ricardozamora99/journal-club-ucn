@@ -1,9 +1,51 @@
 {
   "Nav": {
-    "about": "About",
-    "services": "Services",
-    "projects": "Projects",
-    "demos": "Demos",
-    "contact": "Contact"
+    "home": "HOME",
+    "about": "ABOUT",
+    "calendar": "CALENDAR",
+    "speakers": "SPEAKERS",
+    "papers": "PAPERS",
+    "join": "JOIN",
+    "team": "TEAM"
+  },
+  "Hero": {
+    "title": "Advancing High Energy Physics at UCN",
+    "subtitle": "Weekly talks, discussions, and paper reading sessions fostering collaboration in particle physics.",
+    "ctaJoin": "Join",
+    "ctaNext": "Next Session"
+  },
+  "About": {
+    "title": "About the Journal Club",
+    "text": "A community space at Universidad Católica del Norte dedicated to the discussion of High Energy Physics, cosmology, and beyond the Standard Model research."
+  },
+  "Calendar": {
+    "title": "Upcoming Meetings",
+    "next": "Next session: TBD",
+    "time": "Time: TBD",
+    "place": "Location: TBD",
+    "btn": "Download Paper"
+  },
+  "Speakers": {
+    "title": "Speakers",
+    "upcoming": "Upcoming: TBD",
+    "past": "Past: TBD"
+  },
+  "Papers": {
+    "title": "Research & Resources",
+    "sm": "Standard Model Papers",
+    "bsm": "Beyond the SM",
+    "cosmo": "Cosmology & Astroparticles",
+    "tools": "Computational Tools"
+  },
+  "Join": {
+    "title": "Join",
+    "text": "Interested in presenting or attending? Contact us or sign up below.",
+    "email": "Email: TBD",
+    "form": "Form: TBD"
+  },
+  "Team": {
+    "title": "Organizing Committee",
+    "member1": "Name TBD — Organizer",
+    "member2": "Name TBD — Organizer"
   }
 }
