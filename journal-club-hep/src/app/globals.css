@@ -1,0 +1,47 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Force LIGHT mode everywhere (prevents phone dark-mode from turning text white) */
+  color-scheme: light;
+
+  font-family: var(--font-body), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  min-height: 100%;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Global background like the Hero */
+  background:
+    radial-gradient(circle at 20% 10%, rgba(59,130,246,0.10), transparent 55%),
+    radial-gradient(circle at 80% 0%, rgba(16,185,129,0.08), transparent 55%),
+    radial-gradient(circle at 50% 60%, rgba(0,0,0,0.05), transparent 60%),
+    linear-gradient(180deg, rgba(245,247,255,1), rgba(255,255,255,1));
+  background-attachment: fixed;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

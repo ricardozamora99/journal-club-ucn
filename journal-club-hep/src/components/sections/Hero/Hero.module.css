@@ -1,0 +1,297 @@
+.hero{
+  position: relative;
+  min-height: calc(100vh - 84px);
+  padding: 44px 0 96px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Background gradients */
+.bg{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(59,130,246,0.14), transparent 55%),
+    radial-gradient(circle at 72% 12%, rgba(16,185,129,0.10), transparent 55%),
+    radial-gradient(circle at 40% 70%, rgba(0,0,0,0.06), transparent 60%),
+    linear-gradient(180deg, rgba(245,247,255,1), rgba(255,255,255,1));
+}
+
+/* BUBBLES */
+.bubble{
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 999px;
+
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.85), rgba(255,255,255,0.18) 35%, transparent 70%),
+    radial-gradient(circle at 70% 70%, rgba(37,99,235,0.20), transparent 60%);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+
+  opacity: 0.65;
+  filter: blur(0px);
+  transform: translateZ(0);
+  animation: bubbleFloat 10s ease-in-out infinite;
+  animation-delay: var(--d);
+}
+
+/* Make it feel interactive: hover increases bubble motion a bit */
+.hero:hover .bubble{
+  opacity: 0.78;
+  filter: saturate(1.05);
+  animation-duration: 7s;
+}
+
+@keyframes bubbleFloat{
+  0%   { transform: translate(0px, 0px) scale(1); }
+  50%  { transform: translate(14px, -18px) scale(1.06); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+/* Layout */
+.grid{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 110px;
+}
+
+/* LEFT */
+.card{
+  max-width: 640px;
+  padding: 10px 0;
+  animation: fadeUp 700ms ease-out both;
+}
+
+.kicker{
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0 0 18px;
+}
+
+.titleWrap{
+  position: relative;
+  display: inline-block;
+}
+
+.title{
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-size: clamp(54px, 4.7vw, 72px);
+  line-height: 1.03;
+  margin: 0;
+  color: rgba(0,0,0,0.94);
+  max-width: 14ch;
+}
+
+/* Animated accent line (subtle) */
+.accent{
+  display: block;
+  margin-top: 14px;
+  width: 92px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8, #22c55e);
+  background-size: 200% 100%;
+  opacity: 0.95;
+  animation: shimmer 3.2s ease-in-out infinite;
+}
+
+@keyframes shimmer{
+  0%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+
+.subtitle{
+  font-size: 18px;
+  line-height: 1.65;
+  margin: 18px 0 24px;
+  opacity: 0.82;
+  max-width: 60ch;
+}
+
+/* CTAs */
+.actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0 0 18px;
+}
+
+.primary,
+.secondary{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 650;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.primary{
+  background: rgba(0,0,0,0.92);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+}
+
+.primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.16);
+}
+
+.secondary{
+  border: 1px solid rgba(0,0,0,0.14);
+  color: rgba(0,0,0,0.85);
+  background: rgba(255,255,255,0.72);
+}
+
+.secondary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.10);
+  border-color: rgba(0,0,0,0.20);
+}
+
+.arrow{
+  display: inline-block;
+  margin-left: 10px;
+  transition: transform 160ms ease;
+  opacity: 0.9;
+}
+
+.primary:hover .arrow{
+  transform: translateX(4px);
+}
+
+.meta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+  opacity: 0.65;
+}
+
+.dot{ opacity: 0.35; }
+
+/* RIGHT */
+.right{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Premium moving glass blob (keep the vibe, looks more pro) */
+.orbit{
+  position: absolute;
+  inset: -56px -110px;
+  border-radius: 999px;
+
+  /* glass + light (no harsh outline) */
+  background:
+    radial-gradient(circle at 100% 35%, rgba(37,99,235,0.18), transparent 58%),
+    radial-gradient(circle at 78% 10%, rgba(16,185,129,0.14), transparent 62%),
+    radial-gradient(circle at 55% 40%, rgba(255,255,255,0.30), transparent 55%),
+    rgba(255,255,255,0.10);
+
+  /* remove “sticker border”, use subtle edge instead */
+  border: 1px solid rgba(255,255,255,0.28);
+
+  /* depth */
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.10),
+    0 0 0 1px rgba(0,0,0,0.03) inset;
+
+  backdrop-filter: blur(18px);
+  opacity: 0.92;
+
+  /* smoother premium motion */
+  animation: orbitSlow 12s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes orbitSlow{
+  0%{
+    transform: translate3d(-6px,-6px,0) rotate(-6deg) scale(0.99);
+    opacity: 0.75;
+    filter: saturate(1.00);
+  }
+  50%{
+    transform: translate3d(10px,8px,0) rotate(4deg) scale(1.02);
+    opacity: 0.92;
+    filter: saturate(1.06);
+  }
+  100%{
+    transform: translate3d(-6px,-6px,0) rotate(-6deg) scale(0.99);
+    opacity: 0.75;
+    filter: saturate(1.00);
+  }
+}
+
+
+.heroImg{
+  width: min(540px, 42vw);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.93;
+  filter: drop-shadow(0 18px 55px rgba(0,0,0,0.10));
+  animation: floatLogo 6.5s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+  0%{ transform: translateY(-6px); }
+  50%{ transform: translateY(9px); }
+  100%{ transform: translateY(-6px); }
+}
+
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translateY(14px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce){
+  .bubble, .accent, .heroImg, .card{
+    animation: none !important;
+  }
+  .primary, .secondary, .arrow{
+    transition: none !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .grid{
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .right{
+    justify-content: center;
+  }
+  .heroImg{
+    width: min(560px, 78vw);
+  }
+  .orbit{
+    inset: -30px -40px;
+  }
+}

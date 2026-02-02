@@ -1,0 +1,117 @@
+zamor-data-models/
+├─ src/
+│  ├─ app/
+│  │  ├─ layout.jsx                 # Root layout (html/body) — NO navbar/footer aquí
+│  │  ├─ globals.css                # MUY pequeño: reset + base + imports
+│  │  ├─ page.jsx                   # (opcional) si existiera, mejor NO usarlo con i18n
+│  │  │
+│  │  ├─ [locale]/                  # necesario para /en y /es
+│  │  │  ├─ layout.jsx              # NextIntlClientProvider + validación locale
+│  │  │  └─ (site)/
+│  │  │     ├─ layout.jsx           # layout público (Navbar + Footer)
+│  │  │     ├─ page.jsx             # /en  y /es (home)
+│  │  │
+│  │  │     ├─ services/
+│  │  │     │  ├─ page.jsx          # /en/services  | /es/services
+│  │  │     │  └─ [slug]/
+│  │  │     │     └─ page.jsx       # /en/services/<slug>
+│  │  │
+│  │  │     ├─ demos/
+│  │  │     │  ├─ page.jsx          # /en/demos
+│  │  │     │  └─ [slug]/
+│  │  │     │     └─ page.jsx       # /en/demos/<slug>
+│  │  │
+│  │  │     ├─ projects/
+│  │  │     │  ├─ page.jsx          # /en/projects
+│  │  │     │  └─ [slug]/
+│  │  │     │     └─ page.jsx       # /en/projects/<slug>
+│  │  │
+│  │  │     ├─ about/
+│  │  │     │  └─ page.jsx          # /en/about
+│  │  │     └─ contact/
+│  │  │        └─ page.jsx          # /en/contact
+│  │  │
+│  │  ├─ api/
+│  │  │  └─ contact/route.js
+│  │  ├─ robots.js
+│  │  └─ sitemap.js
+│  │
+│  ├─ components/
+│  │  ├─ layout/
+│  │  │  ├─ Navbar.jsx
+│  │  │  ├─ Navbar.module.css
+│  │  │  ├─ Footer.jsx
+│  │  │  ├─ Footer.module.css
+│  │  │  ├─ Container.jsx
+│  │  │  └─ Container.module.css
+│  │  │
+│  │  ├─ sections/
+│  │  │  ├─ Hero/
+│  │  │  │  ├─ Hero.jsx
+│  │  │  │  └─ Hero.module.css
+│  │  │  ├─ ServicesGrid/
+│  │  │  │  ├─ ServicesGrid.jsx
+│  │  │  │  └─ ServicesGrid.module.css
+│  │  │  ├─ FeaturedDemos/
+│  │  │  │  ├─ FeaturedDemos.jsx
+│  │  │  │  └─ FeaturedDemos.module.css
+│  │  │  ├─ ProcessSteps/
+│  │  │  │  ├─ ProcessSteps.jsx
+│  │  │  │  └─ ProcessSteps.module.css
+│  │  │  └─ ContactCTA/
+│  │  │     ├─ ContactCTA.jsx
+│  │  │     └─ ContactCTA.module.css
+│  │  │
+│  │  └─ ui/
+│  │     ├─ Button/
+│  │     │  ├─ Button.jsx
+│  │     │  └─ Button.module.css
+│  │     ├─ Card/
+│  │     │  ├─ Card.jsx
+│  │     │  └─ Card.module.css
+│  │     └─ Badge/
+│  │        ├─ Badge.jsx
+│  │        └─ Badge.module.css
+│  │
+│  ├─ styles/
+│  │  ├─ tokens.css
+│  │  ├─ reset.css
+│  │  ├─ typography.css
+│  │  └─ utilities.css
+│  │
+│  ├─ content/
+│  │  ├─ services.js
+│  │  ├─ projects.js
+│  │  └─ demos.js
+│  │
+│  ├─ lib/
+│  │  ├─ seo.js
+│  │  ├─ validators.js
+│  │  └─ utils.js
+│  │
+│  └─ assets/
+│     └─ brand/
+│        ├─ logo.svg
+│        ├─ logo.png
+│        └─ mark.png
+│
+├─ public/
+│  ├─ brand/
+│  │  ├─ logo.svg
+│  │  ├─ logo.png
+│  │  └─ og-image.png
+│  └─ favicon.ico
+│
+├─ src/messages/
+│  ├─ en.json
+│  └─ es.json
+│
+├─ src/i18n/
+│  ├─ routing.js
+│  └─ request.js
+│
+├─ src/middleware.js
+├─ .env.local
+├─ next.config.mjs              # (o next.config.js) con next-intl plugin
+├─ package.json
+└─ README.md

@@ -1,0 +1,273 @@
+/* =========================================================
+   Navbar.module.css  (SIMPLE + CLEAN HAMBURGER + SMOOTH OPEN)
+   ========================================================= */
+
+/* ===== Navbar container ===== */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: rgba(245,247,255,0.55);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(37,99,235,0.10);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.navbar::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(59,130,246,0.10), transparent 55%),
+    radial-gradient(circle at 80% 0%, rgba(16,185,129,0.08), transparent 55%);
+  opacity: 0.7;
+}
+
+/* ===== Inner wrapper ===== */
+.inner{
+  position: relative;
+  z-index: 1;
+
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== Brand ===== */
+.left{ display: flex; align-items: center; }
+
+.brand{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo{
+  height: 42px;
+  width: auto;
+}
+
+/* ===== Desktop links ===== */
+.center{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.link{
+  text-decoration: none;
+  color: #1b1f2a;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 6px 2px;
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.link:hover{
+  background: rgba(0,46,137,0.03);
+  color: #2160df;
+}
+
+/* ===== Right ===== */
+.right{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ===== Locale toggle ===== */
+.localeToggle{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(37,99,235,0.14);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(10,25,60,0.06);
+}
+
+/* =========================================================
+   HAMBURGER (DRAWN WITH CSS — PERFECT SPACING)
+   - Works with your current JSX button containing "☰"
+   - We hide the glyph and draw 3 lines ourselves
+   ========================================================= */
+
+.hamburger{
+  display: none; /* hidden on desktop */
+
+  width: 42px;
+  height: 38px;
+  padding: 0;
+
+  /* hide the "☰" glyph visually */
+  color: transparent;
+  font-size: 0;
+
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(37,99,235,0.16);
+  border-radius: 999px;
+
+  box-shadow:
+    0 10px 22px rgba(10,25,60,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.75);
+
+  cursor: pointer;
+
+  position: relative;
+
+  transition:
+    transform 0.12s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+/* 3 lines with perfect equal spacing */
+.hamburger::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 18px;
+  height: 2px;
+  background: #1b1f2a;
+  border-radius: 2px;
+
+  transform: translate(-50%, -50%);
+
+  /* middle + top + bottom using shadows */
+  box-shadow:
+    0 -6px 0 #1b1f2a,
+    0  6px 0 #1b1f2a;
+}
+
+.hamburger:hover{
+  background: rgba(27,73,163,0.10);
+  border-color: rgba(37,99,235,0.26);
+  box-shadow:
+    0 14px 28px rgba(10,25,60,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.80);
+}
+
+.hamburger:active{
+  transform: translateY(1px) scale(0.98);
+}
+
+.hamburger:focus{ outline: none; }
+
+.hamburger:focus-visible{
+  outline: 2px solid rgba(37,99,235,0.35);
+  outline-offset: 3px;
+}
+
+/* ===== Mobile rules ===== */
+@media (max-width: 700px){
+  .center{ display: none; }
+  .hamburger{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   MOBILE MENU (SMOOTHER OPEN)
+   - Smooth open works even with conditional rendering
+   - Smooth close requires keeping menu mounted (see note below)
+   ========================================================= */
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* ===== Mobile menu (smooth IN + OUT) ===== */
+
+.mobileMenu{
+  display: none; /* desktop */
+}
+
+@media (max-width: 700px){
+  .mobileMenu{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    position: absolute;
+    top: 100%;
+    left: 12px;
+    right: 12px;
+
+    padding: 12px;
+    border-radius: 16px;
+
+    background: rgb(245, 247, 255);
+    border: 1px solid rgba(37,99,235,0.12);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+    z-index: 60;
+
+    /* closed state (but still mounted) */
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    filter: blur(2px);
+    pointer-events: none;
+
+    transition:
+      opacity 180ms ease,
+      transform 220ms cubic-bezier(.22,1,.36,1),
+      filter 180ms ease;
+    transform-origin: top center;
+  }
+
+  /* open state */
+  .mobileMenuOpen{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    pointer-events: auto;
+  }
+
+  .mobileLink{
+    text-decoration: none;
+    color: #1b1f2a;
+    font-size: 16px;
+    font-weight: 600;
+
+    padding: 10px 12px;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.70);
+    border: 1px solid rgba(37,99,235,0.10);
+
+    transition: background 0.15s ease, transform 0.12s ease;
+  }
+
+  .mobileLink:hover{
+    background: rgba(27,73,163,0.10);
+    transform: translateY(-1px);
+  }
+}
