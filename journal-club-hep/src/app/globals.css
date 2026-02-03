@@ -14,6 +14,10 @@ body {
   overflow-x: hidden;
   min-height: 100%;
 }
+/* ✅ add this */
+html {
+  scroll-behavior: smooth;
+}
 
 code, pre, kbd, samp {
   font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
@@ -45,3 +49,4 @@ a {
   color: inherit;
   text-decoration: none;
 }
+

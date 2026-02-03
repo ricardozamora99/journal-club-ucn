@@ -47,5 +47,76 @@
     "title": "Comité Organizador",
     "member1": "Nombre — Organizador",
     "member2": "Nombre — Organizador"
+  },
+  "About": {
+    "kicker": "Acerca de",
+    "title": "Un Journal Club de Física de Altas Energías en la UCN",
+    "desc": "Un espacio comunitario en la Universidad Católica del Norte para leer, presentar y discutir artículos de investigación en física de partículas, cosmología y áreas afines. Buscamos construir un ambiente cercano para aprender, hacer preguntas y fortalecer la cultura de investigación mediante sesiones regulares.",
+    "ctaJoin": "Unirse",
+    "ctaCalendar": "Ver calendario",
+
+    "f1": {
+      "title": "Discusión basada en artículos",
+      "text": "Cada sesión se centra en un paper, con una introducción breve y una discusión guiada para extraer las ideas principales."
+    },
+    "f2": {
+      "title": "Ambiente amigable para estudiantes",
+      "text": "Se incentivan las preguntas. El objetivo es aprender en conjunto y ganar confianza leyendo literatura avanzada."
+    },
+    "f3": {
+      "title": "Cobertura amplia en HEP",
+      "text": "Incluye física de partículas, neutrinos, cosmología, astropartículas, teoría/fenomenología y herramientas asociadas."
+    },
+
+    "meta1": { "k": "Frecuencia", "v": "Semanal / quincenal" },
+    "meta2": { "k": "Formato", "v": "Paper + discusión guiada" },
+    "meta3": { "k": "Abierto a", "v": "Estudiantes e investigadores" }
+  },
+    "Calendar": {
+    "kicker": "CALENDARIO",
+    "title": "Agenda de reuniones",
+    "nextTitle": "Próxima sesión",
+    "activity": "Actividad",
+    "sessionTitle": "Título",
+    "speakers": "Expositores",
+    "descTitle": "Descripción",
+    "descPlaceholder": "---",
+    "tbd": "---",
+    "oldTitle": "Sesiones y actividades anteriores",
+  "oldSubtitle": "Un breve archivo visual de reuniones y discusiones pasadas.",
+  "prev": "Anterior",
+  "next": "Siguiente",
+  "oldAlt": "Foto de sesión anterior {n}"
+  },
+    "Footer": {
+    "siteName": "UCN HEP Journal Club",
+    "affiliation": "Física de Altas Energías • Universidad Católica del Norte",
+    "nav": {
+      "about": "Sobre",
+      "calendar": "Calendario",
+      "join": "Unirse"
+    },
+    "contact": {
+      "title": "Contacto",
+      "emailValue": "hep.journalclub@ucn.cl",
+      "note": "Preguntas, propuestas de charla y colaboración."
+    },
+    "location": {
+      "title": "Ubicación",
+      "value": "Antofagasta, Chile",
+      "note": "Comunidad local con participación internacional."
+    },
+    "social": {
+      "title": "Redes",
+      "instagram": "Instagram (Física UCN)",
+      "note": "Novedades y anuncios."
+    },
+    "copyright": "UCN HEP Journal Club",
+    "disclaimer": "Iniciativa académica de lectura y discusión. No es un canal oficial de la universidad.",
+      "credits": {
+  "label": "Sitio por",
+  "github": "GitHub",
+  "linkedin": "LinkedIn"
+}
   }
 }

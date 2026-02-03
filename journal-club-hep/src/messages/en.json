@@ -47,5 +47,79 @@
     "title": "Organizing Committee",
     "member1": "Name TBD — Organizer",
     "member2": "Name TBD — Organizer"
+  },
+  "About": {
+    "kicker": "About",
+    "title": "A Journal Club for High Energy Physics at UCN",
+    "desc": "A community space at Universidad Católica del Norte to read, present, and discuss research papers in particle physics, cosmology, and related fields. We aim to build a friendly environment for learning, asking questions, and strengthening research culture through regular sessions.",
+    "ctaJoin": "Join",
+    "ctaCalendar": "View Calendar",
+
+    "f1": {
+      "title": "Paper-driven discussions",
+      "text": "Each session focuses on a research paper, with a short introduction and guided discussion to extract the main ideas."
+    },
+    "f2": {
+      "title": "Student-friendly environment",
+      "text": "Open questions are encouraged. The goal is to learn together and build confidence reading advanced literature."
+    },
+    "f3": {
+      "title": "Broad HEP scope",
+      "text": "Topics include particle physics, neutrinos, cosmology, astroparticles, theory/phenomenology, and related tools."
+    },
+
+    "meta1": { "k": "Frequency", "v": "Weekly / Biweekly" },
+    "meta2": { "k": "Format", "v": "Paper + guided discussion" },
+    "meta3": { "k": "Open to", "v": "Students & researchers" }
+  },
+  "Calendar": {
+    "kicker": "CALENDAR",
+    "title": "Meeting Schedule",
+    "nextTitle": "Next session",
+    "activity": "Activity",
+    "sessionTitle": "Title",
+    "speakers": "Speakers",
+    "descTitle": "Description",
+    "descPlaceholder": "---",
+    "tbd": "---",
+      "oldTitle": "Old sessions & activities",
+  "oldSubtitle": "A brief visual archive of previous meetings and discussions.",
+  "prev": "Previous",
+  "next": "Next",
+  "oldAlt": "Past session photo {n}"
+  },
+    "Footer": {
+    "siteName": "UCN HEP Journal Club",
+    "affiliation": "High Energy Physics • Universidad Católica del Norte",
+    "nav": {
+      "about": "About",
+      "calendar": "Calendar",
+      "join": "Join"
+    },
+    "contact": {
+      "title": "Contact",
+      "emailValue": "hep.journalclub@ucn.cl",
+      "note": "For questions, talk proposals, and collaboration."
+    },
+    "location": {
+      "title": "Location",
+      "value": "Antofagasta, Chile",
+      "note": "Local community with international participation."
+    },
+    "social": {
+      "title": "Social",
+      "instagram": "Instagram (Física UCN)",
+      "note": "Updates and announcements."
+    },
+    "copyright": "UCN HEP Journal Club",
+    "disclaimer": "Academic initiative for reading and discussion. Not an official university channel.",
+    "credits": {
+  "label": "Website by",
+  "github": "GitHub",
+  "linkedin": "LinkedIn"
+}
+
   }
+
+
 }

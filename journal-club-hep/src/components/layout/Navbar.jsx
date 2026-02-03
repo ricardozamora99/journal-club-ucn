@@ -20,7 +20,6 @@ export default function Navbar() {
     { label: t("about"), href: `${home}/#about` },
     { label: t("calendar"), href: `${home}/#calendar` },
     { label: t("speakers"), href: `${home}/#speakers` },
-    { label: t("papers"), href: `${home}/#papers` },
     { label: t("join"), href: `${home}/#join` },
     { label: t("team"), href: `${home}/#team` },
   ];

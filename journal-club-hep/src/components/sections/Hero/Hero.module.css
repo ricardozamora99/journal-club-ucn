@@ -99,6 +99,6 @@
 
 @media (max-width: 820px){
   .hero{
-    min-height: 85vh;  /* mobile: leave room for navbar */
+    min-height: 90vh;  /* mobile: leave room for navbar */
   }
 }
