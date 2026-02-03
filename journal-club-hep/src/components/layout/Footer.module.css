@@ -144,31 +144,40 @@
 }
 
 /* rectangular small boxes for icon + QR (optional, looks academic) */
-.iconCell,
-.qrCell{
-  display: grid;
-  place-items: center;
-  border: 0px solid rgba(255, 255, 255, 0.12);
-  background: #ffffff;
-  border-radius: 0;
-  text-decoration: none;
+/* Force Next/Image wrapper to not grow */
+.qrCell :global(span),
+.iconCell :global(span){
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* Force the actual <img> to fit the cell */
+.qrCell :global(img),
+.iconCell :global(img){
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
 }
 
 .iconCell{
   width: 46px;
   height: 46px;
+  overflow: hidden;          /* also safe */
+  display: grid;
+  place-items: center;
 }
 
 .qrCell{
   width: 70px;
   height: 70px;
+  overflow: hidden;          /* IMPORTANT: prevents any “escape” */
+  display: grid;
+  place-items: center;
 }
-
 .iconImg,
 .qrImg{
   display: block;
-  height: auto;
-  width: auto;
    border: none !important;
   outline: none !important;
   box-shadow: none !important;
