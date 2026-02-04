@@ -24,12 +24,13 @@ export default function Page() {
         <Speakers />
       </section>
 
-      <section id="join">
-        <Join />
-      </section>
 
       <section id="team">
         <Team />
+      </section>
+
+      <section id="join">
+        <Join />
       </section>
     </main>
   );

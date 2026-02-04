@@ -4,7 +4,6 @@
     "about": "ACERCA",
     "calendar": "CALENDARIO",
     "speakers": "PONENTES",
-    "papers": "ARTÍCULOS",
     "join": "ÚNETE",
     "team": "EQUIPO"
   },
@@ -15,46 +14,11 @@
     "ctaNext": "Próxima sesión"
   },
   "About": {
-    "title": "Sobre el Journal Club",
-    "text": "Un espacio de la Universidad Católica del Norte dedicado a discutir Física de Altas Energías, cosmología y temas más allá del Modelo Estándar."
-  },
-  "Calendar": {
-    "title": "Próximas Reuniones",
-    "next": "Próxima sesión: Por definir",
-    "time": "Hora: Por definir",
-    "place": "Lugar: Por definir",
-    "btn": "Descargar artículo"
-  },
-  "Speakers": {
-    "title": "Ponentes",
-    "upcoming": "Próximos: Por definir",
-    "past": "Anteriores: Por definir"
-  },
-  "Papers": {
-    "title": "Recursos & Lecturas",
-    "sm": "Artículos del Modelo Estándar",
-    "bsm": "Más allá del ME",
-    "cosmo": "Cosmología & Astropartículas",
-    "tools": "Herramientas Computacionales"
-  },
-  "Join": {
-    "title": "Únete",
-    "text": "¿Te interesa presentar o asistir? Contáctanos o inscríbete abajo.",
-    "email": "Correo: Por definir",
-    "form": "Formulario: Por definir"
-  },
-  "Team": {
-    "title": "Comité Organizador",
-    "member1": "Nombre — Organizador",
-    "member2": "Nombre — Organizador"
-  },
-  "About": {
-    "kicker": "Acerca de",
+    "kicker": "ACERCA",
     "title": "Un Journal Club de Física de Altas Energías en la UCN",
     "desc": "Un espacio comunitario en la Universidad Católica del Norte para leer, presentar y discutir artículos de investigación en física de partículas, cosmología y áreas afines. Buscamos construir un ambiente cercano para aprender, hacer preguntas y fortalecer la cultura de investigación mediante sesiones regulares.",
     "ctaJoin": "Unirse",
     "ctaCalendar": "Ver calendario",
-
     "f1": {
       "title": "Discusión basada en artículos",
       "text": "Cada sesión se centra en un paper, con una introducción breve y una discusión guiada para extraer las ideas principales."
@@ -67,12 +31,11 @@
       "title": "Cobertura amplia en HEP",
       "text": "Incluye física de partículas, neutrinos, cosmología, astropartículas, teoría/fenomenología y herramientas asociadas."
     },
-
     "meta1": { "k": "Frecuencia", "v": "Semanal / quincenal" },
     "meta2": { "k": "Formato", "v": "Paper + discusión guiada" },
     "meta3": { "k": "Abierto a", "v": "Estudiantes e investigadores" }
   },
-    "Calendar": {
+  "Calendar": {
     "kicker": "CALENDARIO",
     "title": "Agenda de reuniones",
     "nextTitle": "Próxima sesión",
@@ -83,12 +46,34 @@
     "descPlaceholder": "---",
     "tbd": "---",
     "oldTitle": "Sesiones y actividades anteriores",
-  "oldSubtitle": "Un breve archivo visual de reuniones y discusiones pasadas.",
-  "prev": "Anterior",
-  "next": "Siguiente",
-  "oldAlt": "Foto de sesión anterior {n}"
+    "oldSubtitle": "Un breve archivo visual de reuniones y discusiones pasadas.",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "oldAlt": "Foto de sesión anterior {n}"
   },
-    "Footer": {
+  "Speakers": {
+    "kicker": "EXPOSITORES",
+    "title": "Expositores",
+    "upcomingTitle": "Próximos",
+    "upcomingSub": "Próxima charla programada e invitaciones.",
+    "pastTitle": "Anteriores",
+    "pastSub": "Archivo breve de charlas y expositores previos.",
+    "date": "Fecha",
+    "location": "Lugar"
+  },
+  "Join": {
+    "kicker": "ÚNETE",
+    "title": "Únete",
+    "desc": "¿Quieres presentar un paper o asistir? Contáctanos.",
+    "email": "Correo",
+    "form": "Formulario / WhatsApp"
+  },
+  "Team": {
+    "kicker": "EQUIPO",
+    "title": "Equipo",
+    "roleOrganizer": "Organizador"
+  },
+  "Footer": {
     "siteName": "UCN HEP Journal Club",
     "affiliation": "Física de Altas Energías • Universidad Católica del Norte",
     "nav": {
@@ -113,10 +98,45 @@
     },
     "copyright": "UCN HEP Journal Club",
     "disclaimer": "Iniciativa académica de lectura y discusión. No es un canal oficial de la universidad.",
-      "credits": {
-  "label": "Sitio por",
-  "github": "GitHub",
-  "linkedin": "LinkedIn"
-}
+    "credits": {
+      "label": "Sitio por",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "Join": {
+    "kicker": "ÚNETE",
+    "title": "Únete",
+    "text": "Hay dos formas de participar en el Journal Club: (1) presentar una charla/paper, o (2) formar parte del grupo y asistir a las reuniones regulares.",
+    "b1": "Presentar una charla: propone un paper o una actualización breve (título + 3–5 líneas de contexto).",
+    "b2": "Unirte al grupo: recibir anuncios, sala/enlaces de reunión y participar en las discusiones.",
+    "b3": "Estudiantes e investigadores son bienvenidos — no se requiere experiencia previa.",
+    "cardLabel": "Información de contacto para unirse",
+    "cardTitle": "Contacto",
+    "emailLabel": "Correo",
+    "emailValue": "hep.journalclub@ucn.cl",
+    "whatsLabel": "Formulario / WhatsApp",
+    "whatsValue": "—",
+    "note": "Cuando escribas, dinos cuál opción prefieres: Presentar una charla o Unirte al grupo. Eso agiliza la respuesta."
+  },
+   "Team": {
+    "kicker": "EQUIPO",
+    "title": "Equipo",
+    "headTitle": "Dirección del Journal Club",
+    "headSub": "Coordinación académica y orientación general del grupo.",
+    "headRole": "Coordinación académica",
+    "headAffiliation": "---",
+    "headArea": "---",
+    "membersTitle": "Equipo organizador y estudiantes",
+    "membersSub": "Estudiantes de Doctorado, Magíster y Pregrado apoyando sesiones y logística.",
+    "academic": "Académico",
+    "area": "Área",
+    "phd": "Doctorado",
+    "msc": "Magíster",
+    "bsc": "Pregrado",
+    "affiliation": "Afiliación",
+    "academic": "Investigación o Intereses",
+    "affiliationTBD": "---",
+    "academicTBD": "---"
   }
 }

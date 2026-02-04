@@ -4,7 +4,6 @@
     "about": "ABOUT",
     "calendar": "CALENDAR",
     "speakers": "SPEAKERS",
-    "papers": "PAPERS",
     "join": "JOIN",
     "team": "TEAM"
   },
@@ -15,46 +14,11 @@
     "ctaNext": "Next Session"
   },
   "About": {
-    "title": "About the Journal Club",
-    "text": "A community space at Universidad Católica del Norte dedicated to the discussion of High Energy Physics, cosmology, and beyond the Standard Model research."
-  },
-  "Calendar": {
-    "title": "Upcoming Meetings",
-    "next": "Next session: TBD",
-    "time": "Time: TBD",
-    "place": "Location: TBD",
-    "btn": "Download Paper"
-  },
-  "Speakers": {
-    "title": "Speakers",
-    "upcoming": "Upcoming: TBD",
-    "past": "Past: TBD"
-  },
-  "Papers": {
-    "title": "Research & Resources",
-    "sm": "Standard Model Papers",
-    "bsm": "Beyond the SM",
-    "cosmo": "Cosmology & Astroparticles",
-    "tools": "Computational Tools"
-  },
-  "Join": {
-    "title": "Join",
-    "text": "Interested in presenting or attending? Contact us or sign up below.",
-    "email": "Email: TBD",
-    "form": "Form: TBD"
-  },
-  "Team": {
-    "title": "Organizing Committee",
-    "member1": "Name TBD — Organizer",
-    "member2": "Name TBD — Organizer"
-  },
-  "About": {
-    "kicker": "About",
+    "kicker": "ABOUT",
     "title": "A Journal Club for High Energy Physics at UCN",
     "desc": "A community space at Universidad Católica del Norte to read, present, and discuss research papers in particle physics, cosmology, and related fields. We aim to build a friendly environment for learning, asking questions, and strengthening research culture through regular sessions.",
     "ctaJoin": "Join",
     "ctaCalendar": "View Calendar",
-
     "f1": {
       "title": "Paper-driven discussions",
       "text": "Each session focuses on a research paper, with a short introduction and guided discussion to extract the main ideas."
@@ -67,7 +31,6 @@
       "title": "Broad HEP scope",
       "text": "Topics include particle physics, neutrinos, cosmology, astroparticles, theory/phenomenology, and related tools."
     },
-
     "meta1": { "k": "Frequency", "v": "Weekly / Biweekly" },
     "meta2": { "k": "Format", "v": "Paper + guided discussion" },
     "meta3": { "k": "Open to", "v": "Students & researchers" }
@@ -82,13 +45,35 @@
     "descTitle": "Description",
     "descPlaceholder": "---",
     "tbd": "---",
-      "oldTitle": "Old sessions & activities",
-  "oldSubtitle": "A brief visual archive of previous meetings and discussions.",
-  "prev": "Previous",
-  "next": "Next",
-  "oldAlt": "Past session photo {n}"
+    "oldTitle": "Old sessions & activities",
+    "oldSubtitle": "A brief visual archive of previous meetings and discussions.",
+    "prev": "Previous",
+    "next": "Next",
+    "oldAlt": "Past session photo {n}"
   },
-    "Footer": {
+  "Speakers": {
+    "kicker": "SPEAKERS",
+    "title": "Speakers",
+    "upcomingTitle": "Upcoming",
+    "upcomingSub": "Next planned talk and invited speaker.",
+    "pastTitle": "Past",
+    "pastSub": "A brief archive of previous speakers and talks.",
+    "date": "Date",
+    "location": "Location"
+  },
+  "Join": {
+    "kicker": "JOIN",
+    "title": "Join",
+    "desc": "Want to present a paper or attend sessions? Contact us.",
+    "email": "Email",
+    "form": "Form / WhatsApp"
+  },
+  "Team": {
+    "kicker": "TEAM",
+    "title": "Team",
+    "roleOrganizer": "Organizer"
+  },
+  "Footer": {
     "siteName": "UCN HEP Journal Club",
     "affiliation": "High Energy Physics • Universidad Católica del Norte",
     "nav": {
@@ -114,12 +99,44 @@
     "copyright": "UCN HEP Journal Club",
     "disclaimer": "Academic initiative for reading and discussion. Not an official university channel.",
     "credits": {
-  "label": "Website by",
-  "github": "GitHub",
-  "linkedin": "LinkedIn"
-}
-
+      "label": "Website by",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "Join": {
+    "kicker": "JOIN",
+    "title": "Join",
+    "text": "There are two ways to participate in the Journal Club: (1) present a talk/paper, or (2) join the group and attend our regular meetings.",
+    "b1": "Present a talk: propose a paper or a short research update (title + 3–5 lines of context).",
+    "b2": "Join the group: receive announcements, meeting links/rooms, and participate in discussions.",
+    "b3": "Students and researchers are welcome — no prior expertise required.",
+    "cardLabel": "Join contact information",
+    "cardTitle": "Contact",
+    "emailLabel": "Email",
+    "emailValue": "hep.journalclub@ucn.cl",
+    "whatsLabel": "Form / WhatsApp",
+    "whatsValue": "—",
+    "note": "When writing, tell us which option you prefer: Present a talk or Join the group. This helps us respond faster."
+  },
+    "Team": {
+    "kicker": "TEAM",
+    "title": "Team",
+    "headTitle": "Head of the Journal Club",
+    "headSub": "Faculty coordination and academic guidance for the group.",
+    "headRole": "Academic coordinator",
+    "headAffiliation": "---",
+    "headArea": "---",
+    "membersTitle": "Organizing & Student Team",
+    "membersSub": "PhD, MSc, and Bachelor students supporting weekly sessions and logistics.",
+    "academic": "Academic",
+    "area": "Area",
+    "phd": "PhD",
+    "msc": "MSc",
+    "bsc": "BSc",
+    "affiliation": "Affiliation",
+    "academic": "Research or Interests",
+    "affiliationTBD": "---",
+    "academicTBD": "---"
   }
-
-
 }
