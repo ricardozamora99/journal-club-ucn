@@ -2,17 +2,22 @@
 "Nav": {
   "home": "HOME",
   "about": "ABOUT",
+  "aboutGroup": "ABOUT THE GROUP",
+  "collaborations": "COLLABORATIONS",
+  "research": "RESEARCH",
+  "people": "PEOPLE",
+  "publications": "PUBLICATIONS",
+  "academicLife": "ACADEMIC LIFE",
+  "activities": "ACTIVITIES",
+  "journalClub": "JOURNAL CLUB",
+  "contact": "CONTACT",
   "calendar": "CALENDAR",
   "speakers": "SPEAKERS",
   "join": "JOIN",
   "team": "TEAM",
-
-  "journalClub": "JOURNAL CLUB",
-  "research": "RESEARCH",
-  "publications": "PUBLICATIONS",
-  "activities": "ACTIVITIES",
-  "contact": "CONTACT",
-  "people": "PEOPLE"
+  "navigation": "Main navigation",
+  "menuOpen": "Open navigation menu",
+  "menuClose": "Close navigation menu"
 },
   "Hero": {
     "title": "Advancing High Energy Physics & Cosmology at UCN",

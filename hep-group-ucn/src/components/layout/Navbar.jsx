@@ -1,107 +1,247 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { useLocale } from "next-intl";
+import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import LocaleToggel from "./LocaleToggel";
 import styles from "./Navbar.module.css";
-import { useTranslations } from "next-intl";
 
 export default function Navbar() {
   const t = useTranslations("Nav");
-  const [open, setOpen] = useState(false);
   const locale = useLocale();
+  const [open, setOpen] = useState(false);
+  const [mobileSection, setMobileSection] = useState(null);
 
   const home = `/${locale}`;
 
-  const items = [
-    { label:  t("home"), href: `${home}/#top` },
-    { label: t("about"), href: `${home}/about-group` },
-    { label: t("research"), href: `${home}/research` },
-    { label: "collaborations", href: `${home}/collaborations` },
-    { label: t("publications"), href: `${home}/publications` },
-    { label: t("activities"), href: `${home}/activities` },
-    { label: t("journalClub"), href: `${home}/journal-club` },
-    { label: t("people"), href: `${home}/people` },
-    { label: t("contact"), href: `${home}/contact` },
-  ];
+  const closeMenu = () => {
+    setOpen(false);
+    setMobileSection(null);
+  };
+
+  const toggleMobileSection = (section) => {
+    setMobileSection((current) => (current === section ? null : section));
+  };
 
   return (
     <header className={styles.navbar}>
-      {/* Top band */}
       <div className={styles.topBand}>
         <div className={styles.inner}>
           <Link
             href={`${home}/#top`}
             className={styles.brand}
-            onClick={() => setOpen(false)}
+            onClick={closeMenu}
           >
-            {/* Left small logo */}
-          <Image
-            src="/brand/logoucn.png"
-            alt="UCN HEP Journal Club logo"
-            width={38}
-            height={38}
-            className={styles.logo}
-            priority
-          />
+            <Image
+              src="/brand/logoucn.png"
+              alt="Universidad Católica del Norte logo"
+              width={38}
+              height={38}
+              className={styles.logo}
+              priority
+            />
 
             <div className={styles.brandTextWrap}>
               <span className={styles.brandTitle}>UCN HEP GROUP</span>
               <span className={styles.brandSubtitle}>High Energy Physics</span>
             </div>
 
-            {/* Right small logo */}
-          <Image
-            src="/brand/hepJC.png"
-            alt="UCN HEP Journal Club logo"
-            width={90}
-            height={90}
-            className={`${styles.logoRight}`}
-            priority
-          />
+            <Image
+              src="/brand/hepJC.png"
+              alt="UCN High Energy Physics Group logo"
+              width={90}
+              height={90}
+              className={styles.logoRight}
+              priority
+            />
           </Link>
 
           <div className={styles.rightTop}>
             <LocaleToggel className={styles.localeToggle} />
+
             <button
-              className={styles.hamburger}
-              aria-label="Open menu"
-              onClick={() => setOpen((o) => !o)}
+              type="button"
+              className={`${styles.hamburger} ${open ? styles.hamburgerOpen : ""}`}
+              aria-label={open ? t("menuClose") : t("menuOpen")}
+              aria-expanded={open}
+              aria-controls="mobile-navigation"
+              onClick={() => {
+                setOpen((current) => !current);
+                setMobileSection(null);
+              }}
             >
-              ☰
+              <span className={styles.srOnly}>
+                {open ? t("menuClose") : t("menuOpen")}
+              </span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Gold separator */}
       <div className={styles.goldLine} />
 
-      {/* Link row (desktop) */}
-      <nav className={styles.linkRow}>
+      <nav className={styles.linkRow} aria-label={t("navigation")}>
         <div className={styles.innerLinks}>
-          {items.map((it) => (
-            <Link key={it.label} href={it.href} className={styles.link}>
-              {it.label}
-            </Link>
-          ))}
+          <div className={styles.dropdown}>
+            <button type="button" className={styles.dropdownTrigger}>
+              {t("about")}
+              <span className={styles.chevron} aria-hidden="true" />
+            </button>
+
+            <div className={styles.dropdownMenu}>
+              <Link href={`${home}/about-group`} className={styles.dropdownLink}>
+                {t("aboutGroup")}
+              </Link>
+              <Link href={`${home}/collaborations`} className={styles.dropdownLink}>
+                {t("collaborations")}
+              </Link>
+            </div>
+          </div>
+
+          <Link href={`${home}/research`} className={styles.link}>
+            {t("research")}
+          </Link>
+
+          <Link href={`${home}/people`} className={styles.link}>
+            {t("people")}
+          </Link>
+
+          <Link href={`${home}/publications`} className={styles.link}>
+            {t("publications")}
+          </Link>
+
+          <div className={styles.dropdown}>
+            <button type="button" className={styles.dropdownTrigger}>
+              {t("academicLife")}
+              <span className={styles.chevron} aria-hidden="true" />
+            </button>
+
+            <div className={styles.dropdownMenu}>
+              <Link href={`${home}/activities`} className={styles.dropdownLink}>
+                {t("activities")}
+              </Link>
+              <Link href={`${home}/journal-club`} className={styles.dropdownLink}>
+                {t("journalClub")}
+              </Link>
+            </div>
+          </div>
+
+          <Link href={`${home}/contact`} className={styles.contactLink}>
+            {t("contact")}
+          </Link>
         </div>
       </nav>
 
-      {/* Mobile menu (dropdown) */}
-      <nav className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}>
-        {items.map((it) => (
-          <Link
-            key={it.label}
-            href={it.href}
-            className={styles.mobileLink}
-            onClick={() => setOpen(false)}
+      <nav
+        id="mobile-navigation"
+        className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}
+        aria-label={t("navigation")}
+        aria-hidden={!open}
+      >
+        <div className={styles.mobileSection}>
+          <button
+            type="button"
+            className={styles.mobileSectionButton}
+            aria-expanded={mobileSection === "about"}
+            onClick={() => toggleMobileSection("about")}
           >
-            {it.label}
-          </Link>
-        ))}
+            {t("about")}
+            <span
+              className={`${styles.mobileChevron} ${
+                mobileSection === "about" ? styles.mobileChevronOpen : ""
+              }`}
+              aria-hidden="true"
+            />
+          </button>
+
+          <div
+            className={`${styles.mobileSubmenu} ${
+              mobileSection === "about" ? styles.mobileSubmenuOpen : ""
+            }`}
+          >
+            <Link
+              href={`${home}/about-group`}
+              className={styles.mobileSubLink}
+              onClick={closeMenu}
+              tabIndex={mobileSection === "about" ? 0 : -1}
+            >
+              {t("aboutGroup")}
+            </Link>
+            <Link
+              href={`${home}/collaborations`}
+              className={styles.mobileSubLink}
+              onClick={closeMenu}
+              tabIndex={mobileSection === "about" ? 0 : -1}
+            >
+              {t("collaborations")}
+            </Link>
+          </div>
+        </div>
+
+        <Link href={`${home}/research`} className={styles.mobileLink} onClick={closeMenu}>
+          {t("research")}
+        </Link>
+
+        <Link href={`${home}/people`} className={styles.mobileLink} onClick={closeMenu}>
+          {t("people")}
+        </Link>
+
+        <Link
+          href={`${home}/publications`}
+          className={styles.mobileLink}
+          onClick={closeMenu}
+        >
+          {t("publications")}
+        </Link>
+
+        <div className={styles.mobileSection}>
+          <button
+            type="button"
+            className={styles.mobileSectionButton}
+            aria-expanded={mobileSection === "academic"}
+            onClick={() => toggleMobileSection("academic")}
+          >
+            {t("academicLife")}
+            <span
+              className={`${styles.mobileChevron} ${
+                mobileSection === "academic" ? styles.mobileChevronOpen : ""
+              }`}
+              aria-hidden="true"
+            />
+          </button>
+
+          <div
+            className={`${styles.mobileSubmenu} ${
+              mobileSection === "academic" ? styles.mobileSubmenuOpen : ""
+            }`}
+          >
+            <Link
+              href={`${home}/activities`}
+              className={styles.mobileSubLink}
+              onClick={closeMenu}
+              tabIndex={mobileSection === "academic" ? 0 : -1}
+            >
+              {t("activities")}
+            </Link>
+            <Link
+              href={`${home}/journal-club`}
+              className={styles.mobileSubLink}
+              onClick={closeMenu}
+              tabIndex={mobileSection === "academic" ? 0 : -1}
+            >
+              {t("journalClub")}
+            </Link>
+          </div>
+        </div>
+
+        <Link
+          href={`${home}/contact`}
+          className={`${styles.mobileLink} ${styles.mobileContactLink}`}
+          onClick={closeMenu}
+        >
+          {t("contact")}
+        </Link>
       </nav>
     </header>
   );

@@ -18,10 +18,10 @@
 }
 
 .topBand::before{
-  content:"";
-  position:absolute;
+  content: "";
+  position: absolute;
   inset: 0;
-  pointer-events:none;
+  pointer-events: none;
   background:
     radial-gradient(circle at 18% 8%, rgba(200,161,74,0.10), transparent 20%),
     radial-gradient(circle at 84% 0%, rgba(255,255,255,0.05), transparent 24%);
@@ -180,39 +180,153 @@
 }
 
 /* =========================
-   DESKTOP NAV ROW
+   DESKTOP NAVIGATION
    ========================= */
 
 .linkRow{
-  background: rgba(15, 37, 66, 0.96);
+  background: rgba(15,37,66,0.96);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .innerLinks{
   max-width: 1120px;
   margin: 0 auto;
-  padding: 12px 18px;
+  padding: 10px 18px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: clamp(18px, 2.5vw, 32px);
 }
 
-.link{
+.link,
+.dropdownTrigger,
+.contactLink{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 34px;
   text-decoration: none;
   color: rgba(255,255,255,0.88);
+  font-family: inherit;
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.10em;
+  line-height: 1;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.link,
+.dropdownTrigger{
   padding: 6px 0;
+  border: 0;
   border-bottom: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
   transition: color 160ms ease, border-color 160ms ease;
 }
 
-.link:hover{
+.link:hover,
+.link:focus-visible,
+.dropdown:hover .dropdownTrigger,
+.dropdown:focus-within .dropdownTrigger{
   color: #ffffff;
   border-bottom-color: rgba(200,161,74,0.92);
+}
+
+.link:focus-visible,
+.dropdownTrigger:focus-visible,
+.contactLink:focus-visible,
+.dropdownLink:focus-visible{
+  outline: 2px solid rgba(240,210,143,0.88);
+  outline-offset: 4px;
+}
+
+.contactLink{
+  padding: 9px 14px;
+  border: 1px solid rgba(200,161,74,0.72);
+  background: rgba(200,161,74,0.08);
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.contactLink:hover{
+  color: #ffffff;
+  background: rgba(200,161,74,0.18);
+  border-color: rgba(240,210,143,0.96);
+}
+
+/* =========================
+   DESKTOP DROPDOWNS
+   ========================= */
+
+.dropdown{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.chevron,
+.mobileChevron{
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.dropdown:hover .chevron,
+.dropdown:focus-within .chevron{
+  transform: rotate(225deg) translate(-1px, -1px);
+}
+
+.dropdownMenu{
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 110;
+  min-width: 220px;
+  padding: 8px;
+  background: rgba(11,28,50,0.99);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 20px 42px rgba(0,0,0,0.32);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 10px);
+  transition: opacity 170ms ease, transform 170ms ease, visibility 170ms ease;
+}
+
+.dropdown:hover .dropdownMenu,
+.dropdown:focus-within .dropdownMenu{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.dropdownLink{
+  display: block;
+  padding: 12px 14px;
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-left: 2px solid transparent;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.dropdownLink:hover{
+  color: #ffffff;
+  background: rgba(255,255,255,0.05);
+  border-left-color: rgba(200,161,74,0.92);
 }
 
 /* =========================
@@ -231,21 +345,39 @@
   border-radius: 0;
   cursor: pointer;
   position: relative;
-  transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+  transition: background 180ms ease, border-color 180ms ease, transform 120ms ease;
 }
 
-.hamburger::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:50%;
+.hamburger::before,
+.hamburger::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 18px;
   height: 2px;
   background: rgba(255,255,255,0.92);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.hamburger::before{
   transform: translate(-50%, -50%);
   box-shadow:
     0 -6px 0 rgba(255,255,255,0.92),
-    0  6px 0 rgba(255,255,255,0.92);
+    0 6px 0 rgba(255,255,255,0.92);
+}
+
+.hamburger::after{
+  transform: translate(-50%, -50%) rotate(-45deg) scaleX(0);
+}
+
+.hamburgerOpen::before{
+  box-shadow: none;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.hamburgerOpen::after{
+  transform: translate(-50%, -50%) rotate(-45deg) scaleX(1);
 }
 
 .hamburger:hover{
@@ -253,8 +385,25 @@
   border-color: rgba(255,255,255,0.20);
 }
 
+.hamburger:focus-visible{
+  outline: 2px solid rgba(240,210,143,0.88);
+  outline-offset: 3px;
+}
+
 .hamburger:active{
   transform: translateY(1px) scale(0.98);
+}
+
+.srOnly{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* =========================
@@ -266,16 +415,14 @@
 }
 
 @media (max-width: 920px){
-  .innerLinks{
+  .linkRow{
     display: none;
   }
 
   .hamburger{
     display: inline-flex;
   }
-}
 
-@media (max-width: 920px){
   .mobileMenu{
     display: flex;
     flex-direction: column;
@@ -284,42 +431,115 @@
     top: 100%;
     left: 0;
     right: 0;
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
     padding: 8px 0;
-    background: rgba(15, 37, 66, 0.98);
+    background: rgba(15,37,66,0.99);
     border-top: 1px solid rgba(255,255,255,0.08);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 18px 40px rgba(0,0,0,0.24);
     opacity: 0;
+    visibility: hidden;
     transform: translateY(-10px);
     pointer-events: none;
-    transition: opacity 300ms ease, transform 320ms ease;
+    transition: opacity 220ms ease, transform 240ms ease, visibility 220ms ease;
   }
 
   .mobileMenuOpen{
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
   }
 
-  .mobileLink{
-    text-decoration: none;
+  .mobileLink,
+  .mobileSectionButton{
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
     color: rgba(255,255,255,0.92);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    text-decoration: none;
+    text-align: left;
+    font-family: inherit;
     font-size: 14px;
     font-weight: 900;
     letter-spacing: 0.10em;
+    line-height: 1.3;
     text-transform: uppercase;
-    padding: 14px 18px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer;
     transition: background 180ms ease, color 180ms ease;
   }
 
-  .mobileLink:hover{
+  .mobileLink:hover,
+  .mobileSectionButton:hover{
     color: #ffffff;
     background: rgba(255,255,255,0.04);
   }
 
-  .mobileLink:last-child{
-    border-bottom: none;
+  .mobileLink:focus-visible,
+  .mobileSectionButton:focus-visible,
+  .mobileSubLink:focus-visible{
+    outline: 2px solid rgba(240,210,143,0.88);
+    outline-offset: -3px;
+  }
+
+  .mobileChevron{
+    flex: 0 0 auto;
+    margin-right: 3px;
+  }
+
+  .mobileChevronOpen{
+    transform: rotate(225deg) translate(-1px, -1px);
+  }
+
+  .mobileSubmenu{
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    background: rgba(5,17,31,0.42);
+    transition: max-height 240ms ease, opacity 180ms ease;
+  }
+
+  .mobileSubmenuOpen{
+    max-height: 130px;
+    opacity: 1;
+  }
+
+  .mobileSubLink{
+    display: block;
+    padding: 13px 18px 13px 34px;
+    color: rgba(255,255,255,0.80);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-left: 2px solid transparent;
+    transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+  }
+
+  .mobileSubLink:hover{
+    color: #ffffff;
+    background: rgba(255,255,255,0.04);
+    border-left-color: rgba(200,161,74,0.92);
+  }
+
+  .mobileContactLink{
+    width: auto;
+    margin: 10px 18px 8px;
+    min-height: 44px;
+    justify-content: center;
+    padding: 11px 14px;
+    border: 1px solid rgba(200,161,74,0.72);
+    background: rgba(200,161,74,0.08);
   }
 }
 
@@ -329,7 +549,7 @@
 
 @media (max-width: 520px){
   .inner{
-    padding: 10px 10px;
+    padding: 10px;
     gap: 10px;
   }
 
@@ -386,11 +606,19 @@
     height: 34px;
   }
 
-  .hamburger::before{
+  .hamburger::before,
+  .hamburger::after{
     width: 16px;
+  }
+
+  .hamburger::before{
     box-shadow:
       0 -5px 0 rgba(255,255,255,0.92),
-      0  5px 0 rgba(255,255,255,0.92);
+      0 5px 0 rgba(255,255,255,0.92);
+  }
+
+  .hamburgerOpen::before{
+    box-shadow: none;
   }
 
   .localeToggle :global(.cur),
@@ -402,5 +630,17 @@
 @media (max-width: 380px){
   .logoRight{
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .dropdownMenu,
+  .chevron,
+  .mobileChevron,
+  .mobileMenu,
+  .mobileSubmenu,
+  .hamburger::before,
+  .hamburger::after{
+    transition: none;
   }
 }

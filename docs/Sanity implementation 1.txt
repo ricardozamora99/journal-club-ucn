@@ -1,0 +1,106 @@
+# UCN HEP GROUP — SANITY CMS IDEA
+
+The website will use Sanity as a backend to manage information that changes over time.
+
+Instead of editing the Next.js code every time we want to add something, we will create the information in Sanity Studio.
+
+The general structure will be:
+
+Sanity Studio
+↓
+Create or edit information
+↓
+Sanity stores the content
+↓
+The Next.js website reads the content
+↓
+The website updates automatically
+
+Content that should be managed with Sanity:
+
+* Activities
+* Schools and conferences
+* Group members
+* Former members
+* Collaborators
+* Publications
+* Journal Club sessions
+* News
+* Research projects
+
+## Example: Activities
+
+When a member attends a school, conference, workshop, or congress, we create an activity in Sanity.
+
+An activity may contain:
+
+* Title
+* Member
+* Type of activity
+* Event name
+* City and country
+* Dates
+* Description
+* Images
+* External link
+
+The website will automatically show the activity on the Activities page and may create an individual page such as:
+
+/en/activities/phenoexp-2026
+
+/es/activities/phenoexp-2026
+
+## Example: People
+
+Each person may contain:
+
+* Name
+* Photo
+* Role
+* Research interests
+* Biography
+* Email
+* Personal links
+* Current or former member status
+
+When someone leaves the group, we do not delete the person. We only change their status to former member.
+
+## Main principle
+
+Next.js manages:
+
+* Design
+* Navigation
+* Page structure
+* Components
+
+Sanity manages:
+
+* Text
+* Images
+* People
+* Activities
+* Publications
+* Dates
+* News
+* Links
+
+Suggested Sanity project name:
+
+ucn-hep-group-cms
+
+## Implementation order
+
+1. Create and connect the Sanity project.
+2. Create the Activities schema.
+3. Connect the Activities page.
+4. Create the People schema.
+5. Add Publications and News.
+6. Add Journal Club sessions.
+7. Add more content types when necessary.
+
+## Final goal
+
+The group should be able to add new activities, members, publications, and news from Sanity Studio without modifying the website code.
+
+After publishing the information in Sanity, it should appear automatically on the UCN HEP Group website.

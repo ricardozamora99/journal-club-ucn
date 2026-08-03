@@ -2,17 +2,22 @@
 "Nav": {
   "home": "INICIO",
   "about": "ACERCA",
+  "aboutGroup": "EL GRUPO",
+  "collaborations": "COLABORACIONES",
+  "research": "INVESTIGACIÓN",
+  "people": "PERSONAS",
+  "publications": "PUBLICACIONES",
+  "academicLife": "VIDA ACADÉMICA",
+  "activities": "ACTIVIDADES",
+  "journalClub": "JOURNAL CLUB",
+  "contact": "CONTACTO",
   "calendar": "CALENDARIO",
   "speakers": "PONENTES",
   "join": "ÚNETE",
   "team": "EQUIPO",
-
-  "journalClub": "JOURNAL CLUB",
-  "research": "INVESTIGACIÓN",
-  "publications": "PUBLICACIONES",
-  "activities": "ACTIVIDADES",
-  "contact": "CONTACTO",
-  "people": "PERSONAS"
+  "navigation": "Navegación principal",
+  "menuOpen": "Abrir menú de navegación",
+  "menuClose": "Cerrar menú de navegación"
 },
   "Hero": {
     "title": "Impulsando la Física de Altas Energías y Cosmología en la UCN",
