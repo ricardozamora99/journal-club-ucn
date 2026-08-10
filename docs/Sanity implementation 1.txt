@@ -104,3 +104,38 @@ ucn-hep-group-cms
 The group should be able to add new activities, members, publications, and news from Sanity Studio without modifying the website code.
 
 After publishing the information in Sanity, it should appear automatically on the UCN HEP Group website.
+
+
+FOR PEOPLE AND CONTACT:
+
+Person
+├── Name
+├── Photo
+├── Country
+│   └── countryCode: CO, CL, BR...
+├── Role
+│   ├── Group Head / Professor
+│   ├── Postdoctoral Researcher
+│   ├── PhD Student
+│   ├── MSc Student
+│   └── ...
+├── Description
+│   └── Research lines / interests
+├── Email
+├── Membership status
+│   ├── Current
+│   └── Former
+│
+├── Is group head?
+│   ├── Yes
+│   └── No
+│
+├── If Former:
+│   ├── Start year
+│   ├── End year
+│   └── Currently at
+│
+└── If Group Head:
+    ├── Office
+    └── Phone
+
