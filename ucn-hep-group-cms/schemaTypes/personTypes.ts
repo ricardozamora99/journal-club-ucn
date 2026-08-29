@@ -148,6 +148,15 @@ export const personType = defineType({
         'Optional. Lower numbers appear first on the website.',
       validation: (Rule) => Rule.integer().min(0),
     }),
+
+      defineField({
+    name: 'isJournalClubTeam',
+    title: 'Journal Club team',
+    type: 'boolean',
+    description:
+      'Show this current member in the Journal Club Team section.',
+    initialValue: false,
+  }),
   ],
 
   preview: {

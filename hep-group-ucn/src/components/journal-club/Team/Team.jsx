@@ -1,78 +1,147 @@
 "use client";
 
 import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
+import {
+  useLocale,
+  useTranslations,
+} from "next-intl";
+
 import styles from "./Team.module.css";
 import Container from "@/components/layout/Container";
 import Image from "next/image";
 
-export default function Team() {
+const ROLE_LABELS = {
+  professor: "Professor",
+  postdoc: "Postdoctoral Researcher",
+  phd: "PhD Student",
+  msc: "Master’s Student",
+  undergraduate: "Bachelor’s Student",
+};
+
+function getCountryName(countryCode, locale) {
+  if (!countryCode) {
+    return "";
+  }
+
+  try {
+    const regions = new Intl.DisplayNames(
+      [locale],
+      {
+        type: "region",
+      }
+    );
+
+    return (
+      regions.of(
+        countryCode.trim().toUpperCase()
+      ) || countryCode
+    );
+  } catch {
+    return countryCode;
+  }
+}
+
+export default function Team({
+  members = [],
+  sanityError = false,
+}) {
   const t = useTranslations("Team");
   const locale = useLocale();
 
-  const currentMembers = [
-    {
-      name: "Supriya Pan",
-      role: "Postdoctoral Researcher",
-      affiliation: "India",
-      image: "/people/current/supriya.png",
-    },
-    {
-      name: "Kimy Agudelo",
-      role: "PhD Student",
-      affiliation: "Colombia",
-      image: "/people/current/kimy.png",
-    },
-    {
-      name: "Tatiana Araya",
-      role: "PhD Student",
-      affiliation: "Chile",
-      image: "/people/current/tatiana.png",
-    },
-    {
-      name: "Ethan",
-      role: "Bachelor’s Student",
-      affiliation: "Chile",
-      image: "/people/current/ethan.png",
-    },
-  ];
-
   return (
-    <section id="team" className={styles.section}>
+    <section
+      id="team"
+      className={styles.section}
+    >
       <Container>
         <header className={styles.header}>
-          <div className={styles.kicker}>{t("kicker")}</div>
-          <h2 className={styles.title}>{t("title")}</h2>
+          <div className={styles.kicker}>
+            {t("kicker")}
+          </div>
+
+          <h2 className={styles.title}>
+            {t("title")}
+          </h2>
+
           <div className={styles.underline} />
-          <p className={styles.lead}>{t("membersSub")}</p>
+
+          <p className={styles.lead}>
+            {t("membersSub")}
+          </p>
         </header>
 
-        <div className={styles.grid}>
-          {currentMembers.map((m, i) => (
-            <article className={styles.card} key={`m-${i}`}>
-              <div className={styles.photoWrap}>
-                <div className={styles.photoBox}>
-                  <Image
-                    src={m.image}
-                    alt={`${m.name} portrait`}
-                    fill
-                    sizes="(max-width: 900px) 40vw, 120px"
-                    className={styles.photo}
-                  />
-                </div>
-              </div>
+        {!sanityError && members.length > 0 && (
+          <div className={styles.grid}>
+            {members.map((member) => {
+              const role =
+                ROLE_LABELS[member.role] ??
+                member.role;
 
-              <div className={styles.cardBody}>
-                <div className={styles.cardName}>{m.name}</div>
-                <div className={styles.cardRole}>{m.role}</div>
-                <div className={styles.cardAffiliation}>{m.affiliation}</div>
-              </div>
-            </article>
-          ))}
-        </div>
+              const country = getCountryName(
+                member.countryCode,
+                locale
+              );
+
+              return (
+                <article
+                  className={styles.card}
+                  key={member._id}
+                >
+                  <div
+                    className={styles.photoWrap}
+                  >
+                    <div
+                      className={styles.photoBox}
+                    >
+                      <Image
+                        src={
+                          member.imageUrl ||
+                          "/brand/logoucn.png"
+                        }
+                        alt={`${member.name} portrait`}
+                        fill
+                        sizes="(max-width: 900px) 40vw, 120px"
+                        className={styles.photo}
+                      />
+                    </div>
+                  </div>
+
+                  <div
+                    className={styles.cardBody}
+                  >
+                    <div
+                      className={styles.cardName}
+                    >
+                      {member.name}
+                    </div>
+
+                    <div
+                      className={styles.cardRole}
+                    >
+                      {role}
+                    </div>
+
+                    {country && (
+                      <div
+                        className={
+                          styles.cardAffiliation
+                        }
+                      >
+                        {country}
+                      </div>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        )}
 
         <div className={styles.actions}>
-          <Link className={styles.btnGhost} href={`/${locale}/people`}>
+          <Link
+            className={styles.btnGhost}
+            href={`/${locale}/people`}
+          >
             See the Whole Group
           </Link>
         </div>

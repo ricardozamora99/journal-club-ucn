@@ -16,7 +16,8 @@ export const PEOPLE_QUERY = defineQuery(`
     isGroupHead,
     office,
     phone,
-    displayOrder
+    displayOrder,
+    isJournalClubTeam,
   }
 `);
 
@@ -43,3 +44,18 @@ export const CONTACT_QUERY = defineQuery(`
 
 // ↓
 // devuelve solo los campos que necesitamos
+export const JOURNAL_CLUB_QUERY = defineQuery(`
+  *[_type == "journalClubTalk"] | order(date desc) {
+    _id,
+    mainTopic,
+    title,
+    speaker,
+    affiliation,
+    date,
+    time,
+    location,
+    abstract,
+    poster,
+    isUpcoming
+  }
+`);
